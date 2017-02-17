@@ -17,13 +17,11 @@ var tickInterval;
 
 function runSim(state) {
   if (state == 1) { //run simulation
-
     if (c > 100) {
       runSim('0'); //force stop
     } else {
       tickInterval = setInterval("tick();", 20);
     }
-
   } else {
     //stop simulation
     clearInterval(tickInterval);
@@ -36,7 +34,6 @@ function runSim(state) {
     walls = 0;
     crash = 0;
     avoided = 0;
-
   }
 }
 
@@ -52,11 +49,9 @@ function moveWall() {
   document.getElementById('topDebug').innerHTML = "&nbsp;[" + c + "]<br>&nbsp;Wall (" + getWallX + "," + getWallY + ")<br>&nbsp;AI (" + getAIX + "," + getAIY + ")<br>&nbsp;Walls: " + walls + " Avoided: " + avoided + " Crash: " + crash + " Success rate: " + successRate + "%";
 
   if (getWallX <= 0) {
-
     walls++;
-
   } else {
-    getWallX = getWallX - 20;
+    getWallX -= 20;
     document.getElementById('wall').style.left = getWallX + 'px';
   }
 
@@ -69,13 +64,12 @@ function moveCar(direction) {
   if (aiPos > 200) { aiPos = 200; }
 
   if (direction == 'down') {
-    aiPos = aiPos + 10;
+    aiPos += 10;
   } else {
-    aiPos = aiPos - 10;
+    aiPos -= 10;
   }
 
-
-  document.getElementById('ai').style.marginTop = aiPos + "px";
+  document.getElementById('ai').style.marginTop = aiPos + 'px';
 }
 
 
@@ -139,9 +133,6 @@ function experience() {
   //trying
   document.getElementById('t_trying').innerHTML = tryzone;
 
-
-
-
   //read from experience 'database'
   var buildvar = aizone + wallzone + tryzone;
   var experienceDB = document.getElementById('succ_' + buildvar).innerHTML;
@@ -155,7 +146,6 @@ function experience() {
       experienceDB = document.getElementById('succ_' + buildvar).innerHTML;
       tryzone = 1;
     }
-
   }
 
   if (tryzone == 1) {
@@ -166,13 +156,10 @@ function experience() {
       experienceDB = document.getElementById('succ_' + buildvar).innerHTML;
       tryzone = 0;
     }
-
   }
-
 
   //move AI
   if (tryzone == 0) { moveCar('up'); } else { moveCar('down'); }
-
 
   //update DB only when wall is leftmost
   if (lastWallCount != walls) {
