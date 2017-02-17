@@ -1,3 +1,37 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  padding: 5px;
+  background-color: #e8e8e8;
+}
+
+.log {
+  width: 500px;
+  position: relative;
+  margin: 20px auto;
+}
+
 #actions {
   width: 500px;
   position: relative;
@@ -12,10 +46,29 @@
   margin: 20px auto;
 }
 
+
+#sensor_0,
+#sensor_1 {
+  width: 5px;
+  height: 5px;
+  background-color: #333;
+  position: absolute;
+  top: 70px;
+  margin-left: 12.5px;
+}
+
+#sensor_0{
+  left: -20px;
+}
+
+#sensor_1{
+  left: 20px;
+}
+
 #car {
   width: 30px;
   height: 60px;
-  background-color: #333;
+  background-color: #aaa;
   top: 10px;
   position: relative;
   margin: 0 auto;

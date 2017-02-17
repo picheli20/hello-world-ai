@@ -10,9 +10,11 @@ var carWidth;
 var carHeight;
 var carPos;
 var nearBlock;
+var nearBlockSensor;
 
 var crash = 0;
 var best = 0;
+var sensor = ['0', '1'];
 
 $(document).ready(function() {
   gameAreaWidth = $('#game-area').width();
@@ -31,6 +33,7 @@ $(document).ready(function() {
 function start() {
   getCarPos();
   nearBlock = Math.ceil(carPos.front / roadBrickWidth) * roadBrickWidth;
+  nearBlockSensor = Math.ceil((carPos.front + 10) / roadBrickWidth) * roadBrickWidth;
   $('#car').css({ left: toCar($('#brick-0-' + nearBlock).position().left + roadSize / 2) });
   intervalId = setInterval(loop, 20);
 }
@@ -42,7 +45,36 @@ function stop() {
 function loop() {
   iteration++;
   roadLoop();
+  sensorTurn();
   checkColision();
+}
+
+function sensorTurn() {
+  var sensorBlockLeft = $('#brick-0-' + nearBlockSensor).position().left;
+  var sensorBlockRight = $('#brick-1-' + nearBlockSensor).position().left;
+  
+  sensor = ['0', '0'];
+  var sensorActivated = '-1';
+  if(carPos.left + 5 < sensorBlockLeft){
+    sensorActivated = '0';
+  }
+
+  if(carPos.right + 5 > sensorBlockRight){
+    sensorActivated = '1';
+  }
+
+  if(sensorActivated === '-1'){
+    // $('sensor_0_0_0')
+    // $('sensor_0_0_1')
+    // $('sensor_1_0_0')
+    // $('sensor_1_0_1')
+  }else if(sensorActivated === '0'){
+    // $('sensor_0_1_0')
+    // $('sensor_0_1_1')
+  }else{
+    // $('sensor_1_1_0')
+    // $('sensor_1_1_1')
+  }
 }
 
 function getCarPos() {

@@ -9,10 +9,10 @@ function roadInit() {
 
 function roadLoop() {
   checkRoad();
-  turn();
+  turnRoad();
 }
 
-function turn() {
+function turnRoad() {
   if(turnTime < iteration){
     turnTime = iteration + Math.random() * 50;
     turnSide = Math.random() * 2;
