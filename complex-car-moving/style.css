@@ -1,0 +1,30 @@
+#actions {
+  width: 500px;
+  position: relative;
+  margin: 20px auto;
+}
+
+#game-area {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  position: relative;
+  margin: 20px auto;
+}
+
+#car {
+  width: 30px;
+  height: 60px;
+  background-color: #333;
+  top: 10px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.road-brick {
+  width: 10px;
+  height: 10px;
+  background-color: #eee;
+  position: absolute;
+}
+

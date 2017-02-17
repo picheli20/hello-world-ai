@@ -54,7 +54,6 @@ function moveWall() {
     getWallX -= 20;
     document.getElementById('wall').style.left = getWallX + 'px';
   }
-
 }
 
 
